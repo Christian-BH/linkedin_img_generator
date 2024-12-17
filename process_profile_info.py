@@ -1,5 +1,5 @@
 """
-Main Script
+This script processes LinkedIn profiles and generates responses using OpenAI.
 
 """
 import argparse
