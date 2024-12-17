@@ -1,0 +1,11 @@
+# Data Files
+*.pkl
+*.txt
+*.xlsx
+
+# images
+*.png
+*.jpg
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/

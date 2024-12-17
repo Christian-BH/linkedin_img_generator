@@ -1,0 +1,25 @@
+[prompts]
+instructions = """
+Create an award-winning photo of a person based on the >>>>>information Profile<<<<< provided below. The photo must be captured through an 85mm f/1.4 lens.
+
+The person must be in the right side of the photo, looking to the left at the camera. 
+
+The person is sitting at a work desk with two computer monitors facing the person. The front of the monitors are visible from camera angle.
+
+The person's appearance should reflect their volunteer work, age and nationality.
+
+The computer monitors should reflect the persons work experience. The photo background should be a blurred office setting during christmas.
+
+On the desk there must a items which reflects the person's interests, hobbies, and also items that show the companies they have worked for.
+
+Information Profile:
+"""
+
+[img_gen_settings]
+model = "dall-e-3"
+n = 1
+size = "1024x1024"
+
+[img_gen_api]
+api_version = "2024-02-01"
+azure_endpoint = "INSERT_ENDPOINT_HERE" # Replace with your Azure endpoint URL "https://<your-instance-name>.openai.azure.com/"
