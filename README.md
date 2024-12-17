@@ -50,7 +50,7 @@ in the top of a profile. It will look something like this.
 
 
 In summary the dictionary in the config.py should have a structure similar to this.
-```
+```python
 LINKEDIN_ACCCOUNTS = {
     "Christian Heiden": "christianheiden",
 }
@@ -60,11 +60,11 @@ The job is then run from the command line interface. It requires two inputs to b
 1. --person_name: The key value from the dictionary
 2. --user_email: User email for LinkedIn
 
-It can this be run like this.
+It can this be run like this.  
 
-*python -m extract_profile_info --person_name "Christian Heiden" --user_email chr_heiden@hotmail.com*
+`python -m extract_profile_info --person_name "Christian Heiden" --user_email chr_heiden@hotmail.com`
 
-The CLI will then prompt you for a password for the given LinkedIn account.
+The CLI will then prompt you for a password for the given LinkedIn account.  
 
 NB: Obviously you should always use your own account! Don't get someone else banned from LinkedIn.
 
@@ -83,17 +83,21 @@ The job is run from the command line interface and has one required input, and o
 1. --person_name: reflects the file name of the pickle file to load.
 2. --instruction_path (optional): local path to instructions. If left out it defaults to standard instructions. 
 
-Before running the job the API key must be set as an environment variable.
+Before running the job the API key must be set as an environment variable.  
 `export OPEN_AI_KEY="insert_your_api_key_here"`
 
 See e.g. https://medium.com/@ofirziv/how-to-start-using-openai-api-step-by-step-38ff1ee4b15b
 
-The job is then run via the CLI as:
-*python -m process_profile_info --person_name "Christian Heiden"*
+The job is then run via the CLI as:  
+`python -m process_profile_info --person_name "Christian Heiden"`
+
+or  
+
+`python -m process_profile_info --person_name "ALL"`
 
 or 
 
-*python -m process_profile_info --person_name "Christian Heiden" --instruction_path my/custom/path.toml*
+`python -m process_profile_info --person_name "Christian Heiden" --instruction_path my/custom/path.toml`
 
 ## generate_images.py
 This job will generate an image based on instructions and input content using an image generation model from OpenAI. The job has a set of standard instructions, defined in
@@ -111,12 +115,12 @@ The job is run from the command line interface and has one required input, and o
 1. --person_name: reflects the file name of the pickle file to load.
 2. --instruction_path (optional): local path to instructions. If left out it defaults to standard instructions. 
 
-Before running the job the API key must be set as an environment variable.
+Before running the job the API key must be set as an environment variable.  
 `export OPEN_AI_KEY="insert_your_api_key_here"`
 
-The job is then run via the CLI as:
-*python -m generate_images --person_name "Christian Heiden"*
+The job is then run via the CLI as:  
+`python -m generate_images --person_name "Christian Heiden"`
 
 or 
 
-*python -m generate_images --person_name "Christian Heiden" --instruction_path my/custom/path.toml*
+`python -m generate_images --person_name "Christian Heiden" --instruction_path my/custom/path.toml`
