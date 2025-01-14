@@ -45,7 +45,7 @@ def main(args=None):
     # Load the instructions file
     if args.instruction_path is None:
         logging.info("Using default instructions")
-        with open("modules/instructions/default_image_gen_settings.toml", "rb") as f:
+        with open("instructions/default_image_gen_settings.toml", "rb") as f:
             instructions_toml = tomli.load(f)
     else:
         with open(args.instruction_path, "rb") as f:
