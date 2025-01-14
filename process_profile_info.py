@@ -44,7 +44,8 @@ def main(args=None):
 
     if args.instruction_path is None:
         logging.info("Using default instructions")
-        with open("modules/instructions/default_openai_settings.toml", "rb") as f:
+        # with open("modules/instructions/default_openai_settings.toml", "rb") as f:
+        with open("instructions/default_openai_settings.toml", "rb") as f:
             instructions_toml = tomli.load(f)
     else:
         with open(args.instruction_path, "rb") as f:
@@ -64,8 +65,8 @@ def main(args=None):
     logging.info(instructions_toml)
     openai = UtilizeOpenAI(instructions_toml=instructions_toml, api_key=api_key)
 
-    if not os.path.exists("./responses"):
-        os.makedirs("./responses")
+    if not os.path.exists("./outputs/responses"):
+        os.makedirs("./outputs/responses")
 
     if args.person_name == "ALL":
         persons = LINKEDIN_ACCCOUNTS.keys()  # All persons in config
