@@ -19,7 +19,17 @@ linkedin_api.cookie_repository.LinkedinSessionExpired
 ```
 I suspect it is due to some updates from LinkedIn that is blocking the access.
 
-NB! LinkedIn has some fairly aggressive policies towards api scraping, and will potentially ban accounts. Open source tools therefore always highlight that any consequences are the user's own responsibility. Scraping should therefore be done carefully by minimising API calls. For this reason the implemented script in this repo can only scrape a single person per run.
+**UPDATE JANUARY 2025:**
+Cookie issue has been resolved by deleting local cookies. https://github.com/tomquirk/linkedin-api/issues/461
+
+Navigate to folder 'C:\Users\YourUser\.linkedin_api\cookies' and delete the cookies.
+
+I also encountered some issue with the OpenAI client resulting from updates to dependent libraries. Fix located at discussion here:
+https://community.openai.com/t/error-with-openai-1-56-0-client-init-got-an-unexpected-keyword-argument-proxies/1040332/11
+
+Requirements file has been updated accordingly.
+
+**NB!** LinkedIn has some fairly aggressive policies towards api scraping, and will potentially ban accounts. Open source tools therefore always highlight that any consequences are the user's own responsibility. Scraping should therefore be done carefully by minimising API calls. For this reason the implemented script in this repo can only scrape a single person per run.
 
 ## OpenAI
 The project utilize Microsoft's OpenAI service. An available resource is thus a requirement to run this project.
@@ -32,17 +42,17 @@ put into the code, but in stead specified as an environment variable set manuall
 This section will explain in detail how to run each job in project separately.
 
 ## extract_profile_info.py
-This job will scrape individual profiles for the information. To minimize API calls this only a single person is allowed to be scraped per run. 
+This job will scrape individual profiles for the information. To minimize API calls this job is limited so only a single person is allowed to be scraped per run. 
 
 The scraped information is returned as dictionary with each element from LinkedIn being stored within a separate key. There is a lot of information here,
-much of which is deemed irrelevant. Therefore, only a subset of the keys are retained for the out of this job.
+much of which is deemed irrelevant. Therefore, only a subset of the keys are retained for the output of this job.
 
 The output is then stored as pickle files (dictionaries) for use later.
 
-The job expects a dictionary *'LINKEDIN_ACCOUNTS'* defined in /modules/config.py. This dictionary contains key & value pairs tieing the entire procject together.
+The job expects a dictionary *'LINKEDIN_ACCOUNTS'* defined in /modules/config.py. This dictionary contains key & value pairs tieing the entire project together.
 
-The key can in theory be any string, thought be aware that outputs are saved with naming on the key string, and subsequent jobs will refer to this key when loading information.
-I therefore recommended using a key string that makes it easy to recognize which person is the information refers to.
+The key can in theory be any string, thought be aware that outputs are saved with naming based on the key string, and subsequent jobs will refer to this key when loading information.
+I therefore recommended using a key string that makes it easy to recognize which person the information refers to.
 
 The value in the dictionary refers to the personal LinkedIn URL, which is used to prompt the API call and return information. This can be found on each profile by viewing the *contact info*
 in the top of a profile. It will look something like this.  

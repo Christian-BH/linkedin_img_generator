@@ -44,7 +44,6 @@ def main(args=None):
 
     if args.instruction_path is None:
         logging.info("Using default instructions")
-        # with open("modules/instructions/default_openai_settings.toml", "rb") as f:
         with open("instructions/default_openai_settings.toml", "rb") as f:
             instructions_toml = tomli.load(f)
     else:
